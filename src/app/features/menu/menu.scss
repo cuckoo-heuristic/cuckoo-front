@@ -1,0 +1,24 @@
+@import url("maplibre-gl/dist/maplibre-gl.css");
+
+.menu {
+  width: 20rem;
+  height: 92vh;
+  margin: 1rem;
+  border-radius: 1rem;
+  padding: 1rem;
+  background-color: #ffffff;
+  border: 1px solid #e2e8f0;
+
+  &__element {
+    width: 0.25rem;
+  }
+
+  &__container {
+  }
+}
+
+.AA {
+  background-image: url("/icon/tools.svg");
+  width: 24px;
+  height: 24px;
+}

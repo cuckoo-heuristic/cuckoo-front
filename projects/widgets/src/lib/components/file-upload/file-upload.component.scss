@@ -1,0 +1,9 @@
+@use "tailwindcss";
+@plugin "tailwindcss-primeui";
+
+:host::ng-deep {
+  .p-fileupload-header {
+    justify-content: center;
+    margin-top: 1rem;
+  }
+}

@@ -1,6 +1,6 @@
 import { environment } from '@env/environment';
 
-export const API_URL = `${environment.baseUrl}/api`;
+export const API_URL = `${environment.baseUrl}`;
 
 export const apiRoutes = {
   config: 'config',

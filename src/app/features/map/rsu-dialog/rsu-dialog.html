@@ -1,0 +1,25 @@
+<div class="page">
+        <div class="widget__container">
+                <widget-table [dataList]="list" [columnsConfig]="columns" [paginator]="false" [showHeader]="true"
+                        [showRowIndex]="true" [showHeader]="false">
+                        <ng-container *action="let item">
+                                <p-button (click)="actionColumn.toggle($event)" icon="pi pi-ellipsis-v" variant="text"
+                                        class="action__button" />
+                                <p-popover #actionColumn>
+                                        <div class="flex flex-col gap-1 w-[10rem] action__buttons">
+                                                <p-button icon="pi pi-trash" iconPos="right" label="Remove"
+                                                        variant="text" severity="secondary" size="small"
+                                                        styleClass="w-full" (onClick)="removeAction(item.id)"
+                                                        styleClass="w-full"></p-button>
+
+                                                <p-button icon="pi pi-eye" iconPos="right" label="View Rsu"
+                                                        variant="text" severity="secondary" size="small"
+                                                        styleClass="w-full"
+                                                        (onClick)="viewRsuAction(item.position,item.range)"
+                                                        styleClass="w-full"></p-button>
+                                        </div>
+                                </p-popover>
+                        </ng-container>
+                </widget-table>
+        </div>
+</div>

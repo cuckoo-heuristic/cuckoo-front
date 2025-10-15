@@ -1,0 +1,163 @@
+@if(featureType=='vehicle'){
+<div class="feature grid grid-cols-6 gap-x-3 gap-y-5" [formGroup]="vehicleForm">
+        <div class="flex flex-col gap-2 col-span-2">
+                <label>Start At</label>
+                <p-inputgroup>
+                        <p-inputgroup>
+                                <input pInputText placeholder="Lat" formControlName="latStartAt" />
+                                <input pInputText placeholder="Lon" formControlName="lonStartAt" />
+                        </p-inputgroup>
+                </p-inputgroup>
+        </div>
+        <div class="flex flex-col gap-2 col-span-2">
+                <label>End At</label>
+                <p-inputgroup>
+                        <p-inputgroup>
+                                <input pInputText placeholder="Lat" formControlName="latEndAt" />
+                                <input pInputText placeholder="Lon" formControlName="latEndAt" />
+                        </p-inputgroup>
+                </p-inputgroup>
+        </div>
+        <div class="flex flex-col gap-2 col-span-2">
+                <label>Name</label>
+                <p-inputgroup>
+                        <p-inputgroup>
+                                <input pInputText placeholder="vName" formControlName="name" />
+                        </p-inputgroup>
+                </p-inputgroup>
+        </div>
+        <div class="flex flex-col gap-2 col-span-2">
+                <label>Frequency</label>
+                <p-inputgroup>
+                        <p-inputgroup>
+                                <input pInputText placeholder="e.g. 3" formControlName="frequency" />
+                                <p-inputgroup-addon>
+                                        GHz
+                                </p-inputgroup-addon>
+                        </p-inputgroup>
+                </p-inputgroup>
+        </div>
+        <div class="flex flex-col gap-2 col-span-2">
+                <label>Transmission Power</label>
+                <p-inputgroup>
+                        <p-inputgroup>
+                                <input pInputText placeholder="e.g. 4" formControlName="power" />
+                                <p-inputgroup-addon>
+                                        dBm
+                                </p-inputgroup-addon>
+                        </p-inputgroup>
+                </p-inputgroup>
+        </div>
+        <div class="flex flex-col gap-2 col-span-2">
+                <label>Bandwidth</label>
+                <p-inputgroup>
+                        <p-inputgroup>
+                                <input pInputText placeholder="e.g. 5" formControlName="bandwidth" />
+                                <p-inputgroup-addon>
+                                        MHz
+                                </p-inputgroup-addon>
+                        </p-inputgroup>
+                </p-inputgroup>
+        </div>
+        <div class="flex flex-col gap-2 col-span-2">
+                <label>Cache</label>
+                <p-inputgroup>
+                        <p-inputgroup>
+                                <input pInputText placeholder="e.g. 200" formControlName="cache" />
+                                <p-inputgroup-addon>
+                                        MB
+                                </p-inputgroup-addon>
+                        </p-inputgroup>
+                </p-inputgroup>
+        </div>
+        <div class="flex flex-col gap-2 col-span-2">
+                <label>Range</label>
+                <p-inputgroup>
+                        <p-inputgroup>
+                                <input pInputText placeholder="e.g. 100" formControlName="range" />
+                                <p-inputgroup-addon>
+                                        m
+                                </p-inputgroup-addon>
+                        </p-inputgroup>
+                </p-inputgroup>
+        </div>
+        <div class="flex flex-col gap-2 col-span-2">
+                <label>Submit</label>
+                <p-button label="Add" severity="contrast" [fluid]="true" (onClick)="submit()" [loading]="submitLoading"
+                        [disabled]="submitLoading"></p-button>
+        </div>
+</div>
+}
+@if(featureType=='rsu'){
+<div class="feature grid grid-cols-12 gap-x-3 gap-y-5" [formGroup]="rsuForm">
+        <div class="flex flex-col gap-2 col-span-4">
+                <label>Position</label>
+                <p-inputgroup>
+                        <p-inputgroup>
+                                <input pInputText placeholder="Lat" formControlName="latAt" />
+                                <input pInputText placeholder="Lon" formControlName="lonAt" />
+                        </p-inputgroup>
+                </p-inputgroup>
+        </div>
+        <div class="flex flex-col gap-2 col-span-4">
+                <label>Frequency</label>
+                <p-inputgroup>
+                        <p-inputgroup>
+                                <input pInputText placeholder="Frequency" formControlName="frequency" />
+                                <p-inputgroup-addon>
+                                        GHz
+                                </p-inputgroup-addon>
+                        </p-inputgroup>
+                </p-inputgroup>
+        </div>
+        <div class="flex flex-col gap-2 col-span-4">
+                <label>Transmission Power</label>
+                <p-inputgroup>
+                        <p-inputgroup>
+                                <input pInputText placeholder="e.g. 4" formControlName="power" />
+                                <p-inputgroup-addon>
+                                        dBm
+                                </p-inputgroup-addon>
+                        </p-inputgroup>
+                </p-inputgroup>
+        </div>
+        <div class="flex flex-col gap-2 col-span-3">
+                <label>Cache</label>
+                <p-inputgroup>
+                        <p-inputgroup>
+                                <input pInputText placeholder="e.g. 300" formControlName="cache" />
+                                <p-inputgroup-addon>
+                                        MB
+                                </p-inputgroup-addon>
+                        </p-inputgroup>
+                </p-inputgroup>
+        </div>
+
+        <div class="flex flex-col gap-2 col-span-3">
+                <label>Range</label>
+                <p-inputgroup>
+                        <p-inputgroup>
+                                <input pInputText placeholder="e.g. 1000" formControlName="range" />
+                                <p-inputgroup-addon>
+                                        m
+                                </p-inputgroup-addon>
+                        </p-inputgroup>
+                </p-inputgroup>
+        </div>
+        <div class="flex flex-col gap-2 col-span-3">
+                <label>Bandwidth</label>
+                <p-inputgroup>
+                        <p-inputgroup>
+                                <input pInputText placeholder="e.g. 5" formControlName="bandwidth" />
+                                <p-inputgroup-addon>
+                                        MHz
+                                </p-inputgroup-addon>
+                        </p-inputgroup>
+                </p-inputgroup>
+        </div>
+        <div class="flex flex-col gap-2 col-span-3      ">
+                <label>Submit</label>
+                <p-button label="Add" severity="contrast" [fluid]="true" (onClick)="submit()"></p-button>
+        </div>
+</div>
+}

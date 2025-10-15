@@ -1,0 +1,41 @@
+<div class="simulator">
+        <div class="simulator__map">
+                <app-map></app-map>
+        </div>
+        <div class="grid grid-cols-5 grid-rows-2 w-screen h-screen simulator__side">
+                <div class="side-1 col-span-2">
+                        @if(!displayAddFeature){
+                        <lib-location></lib-location>
+                        }
+                </div>
+                <div class="side-2 col-span-1"></div>
+                <div class="side-3 col-span-2">
+                        @if(!displayAddFeature){
+                        <lib-time-and-temp></lib-time-and-temp>
+                        }
+                </div>
+                <div class="side-4 col-span-2">
+                        <lib-tools></lib-tools>
+                </div>
+                <div class="side-5 col-span-1">
+                        @if(!displayAddFeature){
+
+                        <lib-simulation></lib-simulation>
+                        }
+                </div>
+                <div class="side-6 col-span-2 flex items-end">
+                        <app-add-feature></app-add-feature>
+                </div>
+        </div>
+
+        <div class="initialization">
+                <div class="initialization__logo">
+                        <!-- <p-image src="image/cuckoo_simulator.png" class="initialization__image-loading" /> -->
+                        <div class="relative">
+                                <i class="pi pi-spin pi-compass" style="font-size: 5rem"></i>
+                        </div>
+                        <span style="font-size: 1.5rem; font-weight: 400">Loading Map</span>
+                </div>
+                <p-image src="image/powered_by.png" class="initialization__image-backend" />
+        </div>
+</div>

@@ -1,0 +1,32 @@
+.clickable {
+  pointer-events: auto;
+}
+
+.feature {
+  pointer-events: auto;
+  padding: 1rem;
+  border: 1px solid #00000050;
+  border-radius: 1rem;
+}
+
+:host::ng-deep {
+  .p-inputtext {
+    background: none;
+    color: #000000;
+    border: 1px solid #000000;
+    font-weight: 600;
+
+    &:focus {
+      border: 1px solid #000000;
+      background: #00000010;
+    }
+  }
+
+  .p-inputgroupaddon {
+    background: none;
+    color: #ffffff;
+    border: 1px solid #000000;
+    background-color: #000000;
+    border-left: none;
+  }
+}

@@ -1,0 +1,8 @@
+<div class="tableHeader">
+    <div class="tableHeader__text--title" (click)="navigateTo()"
+        [ngStyle]="{'cursor': titleUrl ? 'pointer' : 'default'}">{{title}}
+    </div>
+    <div class="tableHeader__text--subtitle" *ngIf="subTitle">
+        {{subTitle}}
+    </div>
+</div>

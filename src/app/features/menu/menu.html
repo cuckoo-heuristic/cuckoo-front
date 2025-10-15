@@ -1,0 +1,11 @@
+<div class="menu">
+        <div class="menu__container">
+                <p-selectbutton [options]="states" optionLabel="justify" fluid="true">
+                        <ng-template #item let-item>
+                                <svg-widget [src]="item.src" [width]="36" [color]="'#ff9900'"></svg-widget>
+                        </ng-template>
+                </p-selectbutton>
+        </div>
+
+        <svg-widget src="/icon/tools.svg"></svg-widget>
+</div>

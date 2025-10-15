@@ -1,0 +1,16 @@
+@use "tailwindcss";
+@plugin "tailwindcss-primeui";
+
+.pageHeader {
+  @apply mb-[1.25rem];
+
+  &__text {
+    &--title {
+      @apply text-[1.25rem];
+    }
+
+    &--subtitle {
+      @apply text-[1.25rem] font-normal text-gray-800;
+    }
+  }
+}

@@ -1,0 +1,17 @@
+<div class="w-full! mb-5!">
+  @if(showTitle){
+  <label class="text-sm">{{ title}}</label>
+  }
+  @if (control.value && !uploadNewLogo) {
+  <div class="flex flex-col items-center border border-gray-200 p-4! mt-[0.25rem]!">
+    <img [src]="control.value" alt='' class="h-[60px]!">
+    <p-button class="mt-3!" type="button" severity="primary" outlined size="small" label="{{'Dashboard.UploadNew' }}"
+      (onClick)="uploadNewLogo = true" />
+  </div>
+  } @else {
+  <div>
+    <p-fileupload [multiple]="false" [mode]="'advanced'" [showUploadButton]="false" [showCancelButton]="false"
+      chooseLabel="{{ chooseLabel }}" (onSelect)="setFileForm($event)" (onRemove)="setFileForm(undefined)" />
+  </div>
+  }
+</div>

@@ -1,0 +1,34 @@
+.container {
+  font-weight: 450;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  font-size: 1.25rem;
+  align-items: flex-end;
+
+  &__time {
+    width: 6rem;
+  }
+
+  &__temp {
+    width: 6rem;
+  }
+}
+
+.latlon {
+  width: 6rem;
+  background-color: #000000;
+  color: white;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  padding: 0.25rem 0.75rem 0.25rem 0.25rem;
+  text-align: center;
+  border-radius: 0.5rem;
+  font-size: 0.75rem;
+  margin-right: 3rem;
+}
+
+.timeTemp {
+  display: flex;
+  flex-direction: row-reverse;
+}

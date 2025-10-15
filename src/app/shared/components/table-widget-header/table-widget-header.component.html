@@ -1,0 +1,7 @@
+<div class="widget__header">
+    <ng-content />
+
+    <p-button iconPos="right" (onClick)="emitDefaulButtonFunction()" *ngIf="defaulButtonDisplay">
+        <span class="text-white">Add Task</span>
+    </p-button>
+</div>

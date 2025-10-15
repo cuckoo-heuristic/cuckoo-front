@@ -10,13 +10,19 @@ import { providePrimeNG } from 'primeng/config';
 import { MyPreset } from './core/theme/gp.preset';
 import { ConfirmationService, MessageService } from 'primeng/api';
 import { DialogService } from 'primeng/dynamicdialog';
-
+import {
+  HttpClient,
+  provideHttpClient,
+  withInterceptors,
+} from '@angular/common/http';
+``;
 export const appConfig: ApplicationConfig = {
   providers: [
     provideBrowserGlobalErrorListeners(),
     provideZoneChangeDetection({ eventCoalescing: true }),
     provideRouter(routes),
     provideAnimationsAsync(),
+    provideHttpClient(withInterceptors([])),
     providePrimeNG({
       theme: {
         preset: MyPreset,

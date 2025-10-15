@@ -1,0 +1,370 @@
+<form class="dialog" [formGroup]="formBuilderForm">
+  <div class="dialog__inputs">
+    <div class="flex flex-col gap-2">
+      <label for="name">{{ "FormBuilder.FieldName" | translate }}</label>
+      <input pInputText id="name" formControlName="name" autocomplete="off" />
+    </div>
+    <div class="flex flex-col gap-2">
+      <label for="title">{{ "FormBuilder.FieldTitle" | translate }}</label>
+      <input pInputText id="title" formControlName="title" autocomplete="off" />
+    </div>
+    <div class="flex flex-col gap-2">
+      <label for="type">{{ "FormBuilder.FieldType" | translate }}</label>
+      <p-select
+        id="type"
+        formControlName="type"
+        [options]="types"
+        [checkmark]="true"
+        [optionValue]="'type'"
+        optionLabel="title"
+        styleClass="w-full"
+      />
+    </div>
+    <div class="flex flex-col gap-2">
+      <label for="widget">{{ "FormBuilder.WidgetType" | translate }}</label>
+      <p-select
+        id="widget"
+        formControlName="widget"
+        [options]="widgets"
+        [checkmark]="true"
+        [optionValue]="'name'"
+        optionLabel="title"
+        styleClass="w-full"
+      />
+    </div>
+    @if (getControl('widget').value == 'geometry') {
+    <div class="flex flex-col gap-2">
+      <label for="geometry_type">{{
+        "FormBuilder.GeometryType" | translate
+      }}</label>
+      <p-select
+        id="geometry_type"
+        formControlName="geometry_type"
+        [options]="geometry"
+        [checkmark]="true"
+        [optionValue]="'name'"
+        optionLabel="title"
+        styleClass="w-full"
+      />
+    </div>
+    } @if (getControl('widget').value == 'select') {
+    <div class="flex flex-col gap-2">
+      <label for="permittedFieldValues">{{
+        "FormBuilder.PermittedFieldValues" | translate
+      }}</label>
+      <textarea
+        pTextarea
+        id="permittedFieldValues"
+        formControlName="allowed"
+        rows="3"
+        style="resize: none"
+        class="w-full ltr"
+        [placeholder]="selectPlaceHolder"
+      ></textarea>
+    </div>
+    } @if (getControl('widget').value == 'formula') {
+    <div class="flex flex-col gap-2">
+      <label for="Formula">{{ "FormBuilder.Formula" | translate }}</label>
+      <textarea
+        pTextarea
+        id="Formula"
+        formControlName="formula"
+        rows="3"
+        style="resize: none"
+        class="w-full ltr"
+      ></textarea>
+    </div>
+    }
+    <div class="field__box">
+      <p-checkbox
+        inputId="readonly"
+        [binary]="true"
+        formControlName="readonly"
+      />
+      <label for="readonly" class="mr-2!">{{
+        "FormBuilder.Readonly" | translate
+      }}</label>
+    </div>
+    <div class="field__box">
+      <p-checkbox
+        inputId="nullable"
+        [binary]="true"
+        formControlName="nullable"
+      />
+      <label for="nullable" class="mr-2!">{{
+        "FormBuilder.OptionalField" | translate
+      }}</label>
+    </div>
+    <div class="flex flex-col gap-2">
+      <label for="tab">{{ "FormBuilder.Tab" | translate }}</label>
+      <p-inputgroup>
+        <p-select
+          formControlName="tab"
+          [options]="tabs"
+          [checkmark]="true"
+          optionLabel="title"
+          [optionValue]="'title'"
+          styleClass="w-full"
+        />
+        <p-inputgroup-addon>
+          <p-button
+            (click)="tabTemplate.toggle($event)"
+            icon="pi pi-plus"
+            severity="secondary"
+          />
+        </p-inputgroup-addon>
+      </p-inputgroup>
+    </div>
+    <div class="flex flex-col gap-2">
+      <label for="placeHolder">{{
+        "FormBuilder.PlaceHolder" | translate
+      }}</label>
+      <input
+        pInputText
+        id="placeHolder"
+        formControlName="placeHolder"
+        autocomplete="off"
+      />
+    </div>
+    <div class="flex flex-col gap-2">
+      <label for="order">{{ "FormBuilder.Order" | translate }}</label>
+      <p-inputnumber
+        id="order"
+        formControlName="order"
+        mode="decimal"
+        [showButtons]="true"
+        [min]="1"
+      />
+    </div>
+    <div class="flex flex-col gap-2">
+      <label for="defaultValue">{{
+        "FormBuilder.DefaultValue" | translate
+      }}</label>
+      <input
+        pInputText
+        id="defaultValue"
+        formControlName="default"
+        autocomplete="off"
+      />
+    </div>
+    <div class="flex flex-col gap-2">
+      <label for="description">{{
+        "FormBuilder.Description" | translate
+      }}</label>
+      <input
+        pInputText
+        id="description"
+        formControlName="description"
+        autocomplete="off"
+      />
+    </div>
+  </div>
+  <p-divider />
+  <p class="mb-5! mt-3!">
+    {{ "FormBuilder.DisplayConditionBasedOn" | translate }}:
+  </p>
+  <div class="dialog__inputs" formGroupName="visible">
+    <div class="field__box">
+      <p-checkbox
+        inputId="isActive"
+        [binary]="true"
+        formControlName="isActive"
+      />
+      <label for="isActive" class="mr-2!">{{
+        "FormBuilder.Active/Deactive" | translate
+      }}</label>
+    </div>
+    @if (visible['isActive']) {
+    <p-floatlabel variant="on">
+      <p-select
+        id="visible-field"
+        formControlName="field"
+        [options]="fieldsList"
+        [checkmark]="true"
+        optionLabel="title"
+        [optionValue]="'name'"
+        styleClass="w-full"
+      />
+      <label for="visible-field">{{
+        "FormBuilder.FieldName" | translate
+      }}</label>
+    </p-floatlabel>
+    @if (getVisibleControl('field')) {
+    <p-floatlabel variant="on">
+      <p-select
+        id="visible-operator"
+        formControlName="operator"
+        [options]="operators"
+        [checkmark]="true"
+        [optionValue]="'value'"
+        optionLabel="title"
+        styleClass="w-full"
+      />
+      <label for="visible-operator">{{
+        "FormBuilder.Condition" | translate
+      }}</label>
+    </p-floatlabel>
+    <p-floatlabel variant="on">
+      <input
+        pInputText
+        id="visible-value"
+        formControlName="value"
+        autocomplete="off"
+      />
+      <label for="visible-value">{{ "FormBuilder.Value" | translate }}</label>
+    </p-floatlabel>
+    }}
+  </div>
+  <div class="dialog__submit submit mt-4!">
+    <p-button
+      [disabled]="formBuilderForm.invalid"
+      size="small"
+      label="{{ 'Dashboard.Submit' | translate }}"
+      (onClick)="submit()"
+    />
+  </div>
+</form>
+
+<p-popover #tabTemplate>
+  <p-toolbar class="mb-6">
+    <ng-template #start>
+      <p-button
+        label="{{ 'FormBuilder.New' | translate }}"
+        icon="pi pi-plus"
+        size="small"
+        (onClick)="openNew($event)"
+      />
+      <p-button
+        severity="danger"
+        label="{{ 'Dashboard.Delete' | translate }}"
+        icon="pi pi-trash"
+        class="mr-2!"
+        size="small"
+        outlined
+        (onClick)="deleteSelectedTabs()"
+        [disabled]="!selectedTabs || !selectedTabs.length"
+      />
+    </ng-template>
+  </p-toolbar>
+  <p-table
+    [value]="tabs"
+    dataKey="title"
+    editMode="row"
+    [size]="'small'"
+    [reorderableColumns]="true"
+    [(selection)]="selectedTabs"
+    (onRowReorder)="editTab()"
+  >
+    <ng-template #header let-columns>
+      <tr>
+        <th><p-tableHeaderCheckbox /></th>
+        <th></th>
+        <th>{{ "Dashboard.Title" | translate }}</th>
+        <th>{{ "Dashboard.Action" | translate }}</th>
+      </tr>
+    </ng-template>
+    <ng-template
+      #body
+      let-tab
+      let-editing="editing"
+      let-columns="columns"
+      let-index="rowIndex"
+      let-ri="rowIndex"
+    >
+      <tr [pEditableRow]="tab" [pReorderableRow]="index">
+        <td>
+          <p-tableCheckbox [value]="tab" />
+        </td>
+        <td>
+          <span class="pi pi-bars" pReorderableRowHandle></span>
+        </td>
+        <td>
+          <p-cellEditor>
+            <ng-template #input>
+              <form [formGroup]="tabForm">
+                <input
+                  pInputText
+                  type="text"
+                  size="small"
+                  formControlName="title"
+                  required
+                />
+              </form>
+            </ng-template>
+            <ng-template #output>
+              {{ tab.title }}
+            </ng-template>
+          </p-cellEditor>
+        </td>
+        <td>
+          <button
+            *ngIf="!editing"
+            pButton
+            pRipple
+            type="button"
+            pInitEditableRow
+            icon="pi pi-pencil"
+            (click)="updateTab(tab)"
+            text
+            rounded
+            severity="secondary"
+          ></button>
+          <button
+            *ngIf="editing"
+            pButton
+            pRipple
+            type="button"
+            pSaveEditableRow
+            (click)="saveTab(tab)"
+            icon="pi pi-check"
+            text
+            rounded
+            severity="secondary"
+          ></button>
+          <button
+            *ngIf="editing"
+            pButton
+            pRipple
+            type="button"
+            pCancelEditableRow
+            icon="pi pi-times"
+            text
+            rounded
+            severity="secondary"
+          ></button>
+        </td>
+      </tr>
+    </ng-template>
+  </p-table>
+</p-popover>
+<p-dialog [(visible)]="tabDialog" [style]="{ width: '450px' }" [modal]="true">
+  <ng-template #content>
+    <form [formGroup]="tabForm">
+      <div class="flex flex-col gap-6">
+        <div>
+          <label for="tab-title" class="block font-bold mb-3">{{
+            "Dashboard.Title" | translate
+          }}</label>
+          <input
+            type="text"
+            pInputText
+            id="tab-title"
+            formControlName="title"
+            required
+            autofocus
+            fluid
+          />
+        </div>
+      </div>
+    </form>
+  </ng-template>
+
+  <ng-template #footer>
+    <p-button
+      label="{{ 'Dashboard.Submit' | translate }}"
+      icon="pi pi-check"
+      (click)="saveTab()"
+    />
+  </ng-template>
+</p-dialog>
+<p-toast />

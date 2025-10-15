@@ -1,0 +1,16 @@
+<div class="feature grid grid-cols-2 gap-x-3 gap-y-5" [formGroup]="settingForm">
+        <div class="col-span-2">
+                <div class="text-center">Simulate Time (seconds)</div>
+                <input type="text" pInputText formControlName="simulateTime" class="text-center" />
+
+        </div>
+        <div class="col-span-2">
+                <div class="text-center">Refresh Data Time (seconds)</div>
+                <input type="text" pInputText formControlName="refreshTime" class="text-center" class="text-center" />
+
+        </div>
+        <div class="flex flex-col gap-2 col-span-2">
+                <p-button label="Update" severity="contrast" [fluid]="true" (onClick)="update()" [loading]="loading"
+                        [disabled]="loading"></p-button>
+        </div>
+</div>

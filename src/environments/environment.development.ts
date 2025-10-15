@@ -1,5 +1,5 @@
 export const environment = {
-  baseUrl: 'http://map.geotajak.com',
+  baseUrl: 'localhost:3000',
   production: false,
   pwa: false,
 };

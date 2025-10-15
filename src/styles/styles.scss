@@ -1,12 +1,23 @@
 @use "tailwindcss";
 @plugin "tailwindcss-primeui";
 
+@font-face {
+  font-family: "Roboto Variable";
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url("/font/robotoVariable.ttf") format("truetype-variations");
+}
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: "Roboto Variable", sans-serif;
+  font-weight: 300;
 }
 
 body {
-  font-family: "yekan", sans-serif;
+  font-family: "Roboto Variable", sans-serif;
+  font-weight: 300;
 }

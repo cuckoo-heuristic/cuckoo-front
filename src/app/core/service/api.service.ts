@@ -6,9 +6,9 @@ import {
 } from '@angular/common/http';
 import { Injectable, inject } from '@angular/core';
 import { catchError, map, Observable, of } from 'rxjs';
-import { convertParamsToString } from '@core/utils/convert-params-to-string';
+import { convertParamsToString } from '../utils/convert-params-to-string';
 import { MessageService } from 'primeng/api';
-import { API_URL } from '@core/constants/api-routes';
+import { API_URL } from '../constants/api-routes';
 
 const httpOptions = {
   headers: new HttpHeaders({
@@ -98,10 +98,12 @@ export class ApiService {
 
   put<ResponseType, EntityType>(options: {
     route: string;
-    id: string | number | undefined;
+    id?: string | number | undefined;
     body: EntityType;
   }): Observable<ResponseType> {
-    const url = `${this.apiUrl}/${options.route}/${options.id}/`;
+    const url = `${this.apiUrl}/${options.route}/${
+      options.id ? options.id + '' : ''
+    }`;
     return this.http
       .put<ResponseType>(url, options.body)
       .pipe(catchError(this.errorHandler.bind(this)));

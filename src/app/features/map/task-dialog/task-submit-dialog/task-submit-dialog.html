@@ -1,0 +1,28 @@
+<div class="dialog">
+        <div class="grid grid-cols-4 gap-4 form" [formGroup]="taskForm">
+                <div class="col-span-4">
+                        <div>Name</div>
+                        <input type="text" pInputText formControlName="name" fluid="true" />
+                </div>
+                <div class="col-span-2">
+                        <div>CPU Computation</div>
+                        <input type="number" pInputText formControlName="cpu_computation" />
+                </div>
+                <div class="col-span-2">
+                        <div>Deadline</div>
+                        <input type="number" pInputText formControlName="deadline" />
+                </div>
+                <div class="col-span-2">
+                        <div>Repeat Time</div>
+                        <input type="number" pInputText formControlName="repeat_time" />
+                </div>
+                <div class="col-span-2">
+                        <div>Data Size</div>
+                        <input type="number" pInputText formControlName="data_size" />
+                </div>
+        </div>
+
+        <div class="submit">
+                <p-button label="Submit" (onClick)="submit()" [loading]="submitLoading" />
+        </div>
+</div>

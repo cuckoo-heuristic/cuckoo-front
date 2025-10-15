@@ -1,0 +1,122 @@
+@use "tailwindcss";
+@plugin "tailwindcss-primeui";
+
+:host ::ng-deep {
+  .table {
+    @apply w-[100%] flex flex-col block;
+    border-radius: 50px;
+    ::-webkit-scrollbar {
+      width: 1rem;
+      height: 8px;
+      background-color: white;
+      border-top-left-radius: 100px;
+      border-bottom-left-radius: 100px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: #ffffff;
+      border-radius: 10px;
+      margin-top: 0.5rem;
+      margin-bottom: 0.5rem;
+      overflow: hidden;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background-color: #8393ac;
+      border-radius: 10px;
+      border: 0.35rem solid white;
+      overflow: hidden;
+    }
+  }
+
+  .p-datatable-table-container {
+    @apply outline-[1px] outline-[#CBD5E1];
+    border-radius: 1.125rem;
+  }
+
+  .p-paginator-first {
+    @apply hidden;
+  }
+
+  .p-paginator-last {
+    @apply hidden;
+  }
+
+  .p-datatable-tbody tr {
+    &:hover {
+      @apply bg-[#F1F5F9];
+    }
+  }
+
+  .p-ripple {
+    @apply rounded-[0.5rem] text-[#000000];
+  }
+
+  .p-paginator-page-selected {
+    @apply border-[1px] border-[#065ad8];
+  }
+
+  .p-paginator {
+    @apply bg-[unset] float-end scale-75;
+  }
+
+  .p-datatable-thead {
+    th {
+      @apply text-[#64758a] text-[0.9rem] font-light text-center;
+    }
+  }
+
+  .table--header {
+    @apply flex flex-row-reverse gap-[0.5rem];
+
+    .p-button-icon {
+      color: white;
+      @apply items-start;
+    }
+
+    .p-button-label {
+      color: white;
+    }
+  }
+
+  td {
+    min-width: 50px;
+    max-width: 150px;
+    overflow: hidden;
+    font-size: 1rem;
+  }
+
+  th {
+    text-align: center;
+  }
+
+  .text {
+    &--center {
+      @apply text-center;
+    }
+  }
+}
+
+::ng-deep {
+  .p-datatable-mask {
+    border-radius: 1rem;
+    background-color: #d4e4f783;
+  }
+
+  .p-datatable-loading-icon {
+    @apply text-[#4b96eb];
+  }
+
+  .p-popover-content {
+    .action__buttons {
+      .p-button {
+        @apply flex justify-start;
+      }
+    }
+  }
+}
+.widget {
+  &__header {
+    @apply flex flex-row gap-[0.5rem] mb-[1rem];
+  }
+}

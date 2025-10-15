@@ -1,0 +1,10 @@
+<div class="w-full h-full tools">
+        <p-speeddial [model]="items" direction="up" class="speeddial"
+                [buttonProps]="{ severity: 'contrast', rounded: true}"
+                [tooltipOptions]="{ tooltipPosition: 'right' }" />
+        <p-button label="Rsu List" severity="contrast" (onClick)="rsuListAction()" class="clickable"></p-button>
+        <p-button label="Vehicle List" severity="contrast" (onClick)="vehicleListAction()" class="clickable"></p-button>
+        <p-button label="Task List" severity="contrast" (onClick)="taskListAction()" class="clickable"></p-button>
+        <p-button label="Setting" severity="contrast" variant="outlined" (onClick)="settingAction()" class="clickable"
+                icon="pi pi-cog"></p-button>
+</div>

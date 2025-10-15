@@ -1,1 +1,40 @@
-/* You can add global styles to this file, and also import other style files */
+@use "tailwindcss";
+@plugin "tailwindcss-primeui";
+
+@import "primeicons/primeicons.css";
+
+@font-face {
+  font-family: "Roboto Variable";
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url("/font/robotoVariable.ttf") format("truetype-variations");
+}
+
+@font-face {
+  font-family: "Montserrat Variable";
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url("/font/montserratVariable.ttf") format("truetype-variations");
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  user-select: none;
+  /* Vendor prefixes for broader browser compatibility (though less necessary in modern browsers) */
+  -webkit-user-select: none; /* Safari, Chrome, Opera */
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* Internet Explorer, Edge */
+}
+
+body {
+  font-family: "Montserrat Variable", sans-serif;
+  font-weight: 400;
+}
+
+.clickable {
+  pointer-events: auto;
+}

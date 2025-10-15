@@ -1,0 +1,75 @@
+<div class="table">
+  <div *ngIf="showHeader" class="table--header">
+    <ng-container *ngIf="tableHeaderDirective; else defaultHeader">
+      <ng-container *ngTemplateOutlet="tableHeaderDirective.templateRef"></ng-container>
+    </ng-container>
+    <ng-template #defaultHeader>
+      <div class="widget__header">
+        @if(hasDefaultSearch){
+        <input type="text" pInputText placeholder="{{`${defaultHeaderPlaceholder}`}}" [formControl]="searchInput" />
+        }
+        @if(hasDefaultButton){
+        <p-button *ngIf="defaulButtonDisplay" icon="{{ defaultHeaderIcon }}" iconPos="right"
+          label="{{`${defaultHeaderLabel}` }}" (onClick)="emitDefaulButtonFunction()" />
+        }
+      </div>
+      <!-- <app-table-widget-header [defaultHeaderIcon]="defaultHeaderIcon" [defaultHeaderLabel]="defaultHeaderLabel"
+                [defaultHeaderPlaceholder]="defaultHeaderPlaceholder" (search)="search($event)"
+                (defaulButtonFunction)="emitDefaulButtonFunction()" /> -->
+    </ng-template>
+  </div>
+  <p-table [value]="dataList" [lazy]="isLazy" [paginator]="paginator" [rows]="rowNumber" dataKey="id"
+    [totalRecords]="totalCount" [loading]="loading" (onPage)="emitPageChange($event)" class="table__element"
+    columnResizeMode="expand" autoLayout="true" breakpoint="400px" scrollable="true" scrollHeight="{{maxHeight}}vh"
+    [(selection)]="selectedItems" #dt>
+    <ng-template #header>
+      <tr>
+        <th *ngIf="enableCheckbox">
+          <p-tableHeaderCheckbox />
+        </th>
+        <th *ngIf="showRowIndex" class="text--center">
+          {{ "Row" }}
+        </th>
+        <ng-container *ngIf="columnsConfig.length">
+          <ng-container *ngFor="let column of columnsConfig">
+            <th class="text--center">
+              {{column.translator==false ? column.title : (`${column.title}`)}}
+            </th>
+          </ng-container>
+          <th class="text--center" *ngIf="">
+            {{ "Status" }}
+          </th>
+          <ng-container *ngIf="tableActionDirective?.['_results']?.length">
+            <th class="text--center">
+              {{ "Action" }}
+            </th>
+          </ng-container>
+        </ng-container>
+      </tr>
+    </ng-template>
+    <ng-template #body let-rowIndex="rowIndex" let-item>
+      <tr>
+        <td *ngIf="enableCheckbox" class="text--center">
+          <p-tableCheckbox [value]="item" />
+        </td>
+        <td *ngIf="showRowIndex" class="text--center">
+          {{rowIndex + 1}}
+        </td>
+        <ng-container *ngFor="let column of columnsConfig">
+          <td [innerHTML]="column.action ? column.action(item) : item[column.key]" class="text--center"></td>
+        </ng-container>
+
+        <ng-container *ngIf="tableActionDirective?.['_results']?.length">
+          <td class="text--center">
+            <ng-template [ngTemplateOutlet]="tableActionDirective?.['_results'][0].templateRef"
+              [ngTemplateOutletContext]="{
+                $implicit: item
+              }">
+              <ng-content></ng-content>
+            </ng-template>
+          </td>
+        </ng-container>
+      </tr>
+    </ng-template>
+  </p-table>
+</div>

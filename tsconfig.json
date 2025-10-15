@@ -24,6 +24,9 @@
       "@styles/*": ["src/styles/*"],
       "@component/*": ["src/app/shared/components/*"],
       "@shared/*": ["src/app/shared/*"],
+      "@table-widget/*": ["projects/widgets/src/lib/components/table/*"],
+      "@table-header-widget/*": ["projects/widgets/src/lib/components/table/*"],
+      "@formbuilder/*": ["projects/widgets/src/lib/components/form-builder/*"],
       "@app/*": ["./src/app/*"]
     }
   },

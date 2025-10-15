@@ -1,0 +1,38 @@
+@use "tailwindcss";
+@plugin "tailwindcss-primeui";
+
+:host ::ng-deep {
+  .dialog {
+    @apply mt-[0.75rem] w-[51rem];
+
+    &__toggle {
+      @apply mx-[0.25rem];
+    }
+
+    &__inputs {
+      @apply grid grid-cols-2 gap-[1rem];
+    }
+
+    &__toggles {
+      @apply grid grid-cols-3 my-[1rem];
+    }
+  }
+
+  .p-inputtext {
+    width: 100%;
+  }
+
+  .p-floatlabel {
+    width: 100%;
+  }
+
+  .submit {
+    @apply mx-[0.25rem] pt-[1rem] flex flex-row-reverse col-span-2;
+  }
+}
+
+::ng-deep {
+  .p-dialog-header {
+    @apply border-b-[1px] border-[#cbd5e1];
+  }
+}

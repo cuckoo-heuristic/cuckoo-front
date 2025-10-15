@@ -1,0 +1,9 @@
+.simulation {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+
+  &__start {
+    padding: 0 1.5rem;
+  }
+}

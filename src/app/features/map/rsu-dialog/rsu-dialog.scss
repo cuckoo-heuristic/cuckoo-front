@@ -1,0 +1,10 @@
+.page {
+  width: 50rem;
+  margin: 1rem;
+}
+
+::ng-deep {
+  .p-confirmdialog {
+    width: 20rem;
+  }
+}
